@@ -1,5 +1,5 @@
 {
-  "name": "angular2-wizard",
+  "name": "angular2-wizard-sntl",
   "version": "0.2.2",
   "scripts": {
     "build": "ngc -p tsconfig.json",
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maiyaporn/angular2-wizard"
+    "url": "https://github.com/yeshuamayen/angular2-wizard"
   },
   "author": {
-    "name": "Maiyaporn Phanich",
-    "email": "p.maiyaporn@gmail.com"
+    "name": "Yeshua Mayen",
+    "email": "mekayeamz@gmail.com"
   },
   "keywords": [
-    "angular2-wizard",
-    "form-wizard",
-    "wizard",
-    "wizard-step",
+    "angular2-wizard-sntl",
+    "form-wizard-sntl",
+    "wizard-sntl",
+    "wizard-step-sntl",
     "angular2",
     "angular2-component"
   ],

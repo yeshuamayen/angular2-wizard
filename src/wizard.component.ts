@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import { WizardStepComponent } from './wizard-step.component';
 
 @Component({
@@ -15,10 +15,10 @@ import { WizardStepComponent } from './wizard-step.component';
     <div class="card-block">
       <ng-content></ng-content>
     </div>
-    <div class="card-footer" [hidden]="isCompleted">
-        <button type="button" class="btn btn-secondary float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
-        <button type="button" class="btn btn-secondary float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
-        <button type="button" class="btn btn-secondary float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+    <div class="card-footer" [hidden]="isCompleted||isHidden">
+        <button type="button" class="btn btn-secondary float-left" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">{{prevtxt}}</button>
+        <button type="button" class="btn btn-secondary float-right" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">{{nexttxt}}</button>
+        <button type="button" class="btn btn-secondary float-right" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">{{donetxt}}</button>
     </div>
   </div>`
   ,
@@ -40,6 +40,10 @@ export class WizardComponent implements OnInit, AfterContentInit {
 
   private _steps: Array<WizardStepComponent> = [];
   private _isCompleted: boolean = false;
+  @Input() nexttxt: string = "";
+  @Input() prevtxt: string = "";
+  @Input() donetxt: string = "";
+  @Input() isHidden: boolean = false;
 
   @Output()
   onStepChanged: EventEmitter<WizardStepComponent> = new EventEmitter<WizardStepComponent>();
